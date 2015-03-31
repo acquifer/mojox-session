@@ -1,0 +1,54 @@
+{
+   "abstract" : "Session management for Mojo",
+   "author" : [
+      "Viacheslav Tykhanovskyi <vti@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.143240",
+   "license" : [
+      "artistic_2"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "MojoX-Session",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "inc",
+         "t"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Digest::SHA" : "0",
+            "MIME::Base64" : "0",
+            "Mojolicious" : "2.49",
+            "Storable" : "0",
+            "Test::More" : "0"
+         }
+      }
+   },
+   "release_status" : "testing",
+   "resources" : {
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ],
+      "repository" : {
+         "url" : "http://github.com/vti/mojox-session"
+      }
+   },
+   "version" : "0.25_acq"
+}

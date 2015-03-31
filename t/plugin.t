@@ -43,7 +43,7 @@ sub reset_id {
 get '/init_ok' => sub {
     my $self = shift;
 
-    $self->render_text($self->stash('init'));
+    $self->render(text => $self->stash('init'));
 };
 
 get '/sleepy' => sub {
@@ -55,7 +55,7 @@ get '/sleepy' => sub {
 
     my $res = $self->ua->get('/fasty')->res;
 
-    $self->render_text("Session id is: '"
+    $self->render(text => "Session id is: '"
           . $session->sid . "'; "
           . "fasty session returned "
           . $res->code . ': \''
@@ -72,7 +72,7 @@ get '/fasty' => sub {
     $session->create();
     reset_id($session, 'fasty');
 
-    $self->render_text("This is a fasty session!");
+    $self->render(text => "This is a fasty session!");
 
 };
 
@@ -81,12 +81,12 @@ my $t = Test::Mojo->new;
 # Init checking
 $t->get_ok('/init_ok')->status_is(200);
 
-is($t->_get_content($t->tx), 'ok');
+is($t->tx->res->text, 'ok');
 
 # Touching sleepy session, which will touch fasty
 $t->get_ok('/sleepy')->status_is(200);
 
-my $ct = $t->_get_content($t->tx);
+my $ct = $t->tx->res->text;
 
 # Just parse response
 ok($ct
